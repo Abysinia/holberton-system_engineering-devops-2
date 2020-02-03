@@ -1,2 +1,2 @@
-#!/bin/bash
-sed -n 1~2p
+#i/bin/bash
+perl -ne 'print if($.%2)'
