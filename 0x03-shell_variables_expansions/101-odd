@@ -1,2 +1,2 @@
 #!/bin/bash
-perl -ne 'print if($.%2)'
+ grep -n . | grep [13579]: | cut -d : -f 2
