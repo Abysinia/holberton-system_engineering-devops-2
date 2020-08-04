@@ -1,0 +1,5 @@
+#!/usr/bin/env bash
+#creates an RSA key pair.
+#Name: holberton / Number of bits: 4096 / passphrase: betty
+
+ssh-keygen -b 4096 -f holberton -N betty <<< y
