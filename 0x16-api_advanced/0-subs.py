@@ -3,8 +3,8 @@
 prints the titles of the first 10 hot posts listed
  for a given subreddit """
 
-import requests
 import json
+import requests
 
 
 def number_of_subscribers(subreddit):
