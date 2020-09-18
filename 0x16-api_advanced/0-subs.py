@@ -10,7 +10,7 @@ import json
 def number_of_subscribers(subreddit):
     """number_of_subscribers"""
     response = requests.get(
-        "https://www.reddit.com/r/{}/about.json".format(subreddit))
+        "https://www.reddit.com/r/{}/about.json".format(subreddit), headers={'User-Agent': 'Something here'})
 
     if response.status_code == 200:
         myData = json.loads(response.text)
