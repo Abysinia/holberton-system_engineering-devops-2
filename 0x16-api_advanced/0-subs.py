@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" queries the Reddit API and 
+""" queries the Reddit API and
 prints the titles of the first 10 hot posts listed
  for a given subreddit """
 
@@ -10,7 +10,8 @@ import json
 def number_of_subscribers(subreddit):
     """number_of_subscribers"""
     response = requests.get(
-        "https://www.reddit.com/r/{}/about.json".format(subreddit), headers={'User-Agent': 'Something here'})
+        "https://www.reddit.com/r/{}/about.json".
+        format(subreddit), headers={'User-Agent': 'Something here'})
 
     if response.status_code == 200:
         myData = json.loads(response.text)
