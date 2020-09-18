@@ -10,7 +10,7 @@ def top_ten(subreddit):
     """top_ten"""
 
     response = requests.get(
-        "https://www.reddit.com/r/{}/about.json".
+        "https://www.reddit.com/r/{}/hot.json".
         format(subreddit), allow_redirects=False,
         headers={'User-Agent': 'Something here'})
 
