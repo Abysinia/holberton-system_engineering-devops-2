@@ -13,16 +13,19 @@ def count_words(subreddit, word_list, after="", count=[]):
     """count_words"""
 
     if after == "":
+        a = 0
+        """
         for i in range(len(word_list)):
             word_list[i] = word_list[i].lower()
             for j in range(i + 1, len(word_list)):
                 if word_list[i].lower() == word_list[j].lower():
                     a = i
         del word_list[a]
+        """
         count = [0] * len(word_list)
 
     url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
-    r = requests.get(url, params={'limit': 100, 'after': after},
+    r = requests.get(url, params={'after': after},
                      allow_redirects=False,
                      headers={'user-agent': 'myUser'})
 
