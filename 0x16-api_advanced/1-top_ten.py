@@ -8,15 +8,13 @@ import requests
 
 def top_ten(subreddit):
     """top_ten"""
+    url = "https://www.reddit.com/r/{}/hot.json?limit=10".format(subreddit)
+    r = requests.get(url, allow_redirects=False,
+                     headers={'user-agent': 'myUser'})
 
-    response = requests.get(
-        "https://www.reddit.com/r/{}/hot.json".
-        format(subreddit), allow_redirects=False,
-        headers={'User-Agent': 'Something here'})
-
-    if response.ok:
-        myData = json.loads(response.text)
-        for post in myData["data"]["children"][:10]:
-            print(post.get('data').get('title'))
+    if r.status_code == 200:
+        data = r.json()
+        for i in range(10):
+            print(data['data']['children'][i]['data']['title'])
     else:
-        print("None")
+        print('None')
