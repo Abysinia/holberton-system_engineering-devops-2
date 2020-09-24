@@ -33,6 +33,13 @@ def count_words(subreddit, word_list, after="", count=[]):
         if after is not None:
             count_words(subreddit, word_list, after, count)
         else:
+            arr = []
+            for i in range(len(word_list)):
+                for j in range(i + 1, len(word_list)):
+                    if word_list[i].lower() == word_list[j].lower():
+                        arr.append(j)
+                        count[i] += count[j]
+
             for i in range(len(word_list)):
                 for j in range(i, len(word_list)):
                     if count[j] > count[i] or (word_list[i] > word_list[j] and count[j] == count[i]):
@@ -44,5 +51,5 @@ def count_words(subreddit, word_list, after="", count=[]):
                         word_list[j] = aux
 
             for i in range(len(word_list)):
-                if (count[i] > 0):
+                if (count[i] > 0) and i not in arr:
                     print("{}: {}".format(word_list[i].lower(), count[i]))
