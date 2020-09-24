@@ -42,7 +42,7 @@ def count_words(subreddit, word_list, after="", count=[]):
                         aux = word_list[i]
                         word_list[i] = word_list[j]
                         word_list[j] = aux
-            
+
             arr = []
             orig = None
             for i in range(len(word_list)):
@@ -50,7 +50,7 @@ def count_words(subreddit, word_list, after="", count=[]):
                     if word_list[i].lower() == word_list[j].lower():
                         arr.append(j)
                         orig = i
-            
+
             if orig is not None:
                 count[orig] = (len(arr) + 1) * count[orig]
             for i in arr:
