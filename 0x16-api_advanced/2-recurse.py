@@ -10,15 +10,21 @@ import json
 import requests
 
 
-def recurse(subreddit, hot_list=[]):
+def recurse(subreddit, hot_list=[], after=""):
     """recurse"""
 
-    response = requests.get(
-        "https://www.reddit.com/r/{}/hot.json".
-        format(subreddit), allow_redirects=False,
-        headers={'User-Agent': 'Something here'})
+    url = "https://www.reddit.com/r/{}/hot.json".format(subreddit)
+    r = requests.get(url, params={'limit': 100, 'after': after},
+                     allow_redirects=False,
+                     headers={'user-agent': 'myUser'})
 
-    if response.ok:
-        print('None')
+    if r.status_code == 200:
+        data = r.json()
+        for hotTopic in (data['data']['children']):
+            hot_list.append(hotTopic['data']['title'])
+        after = data['data']['after']
+        if after is not None:
+            recurse(subreddit, hot_list, after)
+        return hot_list
     else:
-        print("None")
+        print('None')
