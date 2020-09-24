@@ -42,20 +42,20 @@ def count_words(subreddit, word_list, after="", count=[]):
                         aux = word_list[i]
                         word_list[i] = word_list[j]
                         word_list[j] = aux
-            """
-            flag = 0
+            
+            arr = []
+            orig = None
             for i in range(len(word_list)):
                 for j in range(i + 1, len(word_list)):
                     if word_list[i].lower() == word_list[j].lower():
-                        aux = i
-                        aux2 = j
-                        flag = 1
-                if flag == 1:
-                    count[i] *= 2
-                    del word_list[j]
-                    del count[j]
-                    flag = 0
-            """
+                        arr.append(j)
+                        orig = i
+            
+            if orig is not None:
+                count[orig] = (len(arr) + 1) * count[orig]
+            for i in arr:
+                del word_list[i]
+                del count[i]
 
             for i in range(len(word_list)):
                 if (count[i] > 0):
