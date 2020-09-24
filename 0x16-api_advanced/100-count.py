@@ -55,5 +55,3 @@ def count_words(subreddit, word_list, after="", count=[]):
             for i in range(len(word_list)):
                 if (count[i] > 0):
                     print("{}: {}".format(word_list[i], count[i]))
-    else:
-        print(None)
