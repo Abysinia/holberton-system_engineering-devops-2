@@ -1,0 +1,25 @@
+html,
+body {
+  margin: 0;
+  height: 100%;
+  color: white;
+}
+
+.fire {
+  background-image: url("https://static01.nyt.com/images/2020/09/09/opinion/09warzelWeb/merlin_176761467_6ccc1684-d40a-442d-a5eb-db9261eac5f9-superJumbo.jpg?quality=90&auto=webp");
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+h1 {
+  margin: 0;
+  font-size: 4rem;
+}
