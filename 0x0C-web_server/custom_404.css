@@ -3,6 +3,7 @@ body {
   margin: 0;
   height: 100%;
   color: white;
+  position: relative;
 }
 
 .fire {
@@ -21,5 +22,12 @@ body {
 
 h1 {
   margin: 0;
-  font-size: 4rem;
+  font-size: 6rem;
+}
+
+footer {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  margin-right: 30px;
 }
